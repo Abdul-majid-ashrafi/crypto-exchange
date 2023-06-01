@@ -4,6 +4,7 @@ import React, {  } from "react";
 import SigninComponent from './Components/Authentication/Signin';
 import SignupComponent from './Components/Authentication/Signup';
 import BlogComponent from "./Components/Blogs/Blog";
+import CryptoExchangeComponent from "./Components/CryptoExchange/CryptoExchange";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Header from "./Components/header";
 import { About } from "./Components/About";
@@ -22,6 +23,7 @@ function App() {
           <Route path="/signup" element={<SignupComponent />} />
           <Route path="/signin" element={<SigninComponent />} />
           <Route path="/blogs" element={<BlogComponent />} />
+          <Route path="/crypto-exchange" element={<CryptoExchangeComponent />} />
         </Routes>
       </BrowserRouter>
     </div>
