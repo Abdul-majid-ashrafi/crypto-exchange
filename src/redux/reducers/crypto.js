@@ -56,35 +56,11 @@ const initialState = {
 const cryptoCoin = (state = initialState, action) => {
   switch (action.type) {
     case 'TRANSFER_COIN':
-      // const idx = action.payload?.userIdx;
-      // const allUsers = state.users;
-      // if (idx) {
-
-      //   // allUsers[idx].coin = state.users[idx].coin + 2;
-      //   // state.users[idx].coin = state.users[idx].coin + 2;
-      // }
-      console.log("STATE ", state);
-      var user = action.payload.user;
-      console.log("payload ", user);
-      // user.coin = user.coin - 2;
-      // const index = allUsers.findIndex(usr => {
-      //   return usr.id === user.id;
-      // });
-      // if (index !== -1) {
-      //   allUsers[index].coin = allUsers[index].coin - 2;
-      // }
-
-      // state.users.splice(2 ,1)
-
+      let user = action.payload.user;
       return {
         ...state,
-        // users: [...allUsers],
-        users: [...state.users],
+        users: [...state.users, user],
       };
-    // return {
-    //   ...state,
-    //   users: [...state.users, action.payload?.note],
-    // };
     default:
       return state;
   }

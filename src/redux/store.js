@@ -1,14 +1,13 @@
-import { configureStore } from '@reduxjs/toolkit'
+import { configureStore } from '@reduxjs/toolkit';
 import cryptoCoin from './reducers/crypto';
+import thunk from 'redux-thunk';
 
 const store = configureStore({
   reducer: {
     crypto: cryptoCoin,
-    // middleware: (getDefaultMiddleware) => getDefaultMiddleware({
-    //   immutableCheck: false,
-    //   serializableCheck: false,
-    // })
-  }
+  },
+  middleware: [thunk],
 });
+
 
 export default store;

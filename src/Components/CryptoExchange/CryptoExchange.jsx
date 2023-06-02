@@ -42,15 +42,15 @@ function CryptoExchangeComponent() {
                                 {user.coin}
                             </td>
                             <td>
-                                <div style={{ display: 'flex', justifyContent: 'space-evenly' }} onClick={() => {
+                                {/* <div style={{ display: 'flex', justifyContent: 'space-evenly' }} onClick={() => {
                                     user.coin = user.coin - 2;
                                     dispatch(coinTransferred(user));
                                 }}>
                                     click me
-                                </div>
-                                {/* <div style={{ display: 'flex', justifyContent: 'space-evenly' }} onClick={() => setSelectedUser(user)}>
-                                    <CryptoExchangeTransfer users={users} selectedUser={selectedUser} />
                                 </div> */}
+                                <div style={{ display: 'flex', justifyContent: 'space-evenly' }} onClick={() => setSelectedUser(user)}>
+                                    <CryptoExchangeTransfer users={users} selectedUser={selectedUser} />
+                                </div>
                             </td>
                         </tr>
                     })}
@@ -62,10 +62,10 @@ function CryptoExchangeComponent() {
 
 
 
-function CryptoExchangeTransfer({ users, selectedUser }) {
+function CryptoExchangeTransfer({ selectedUser }) {
     const [openModal, setOpenModal] = useState(false);
-    const [transferAddress, setTransferAddress] = useState("todo");
-    const [transferChain, setTransferChain] = useState("todo");
+    const [transferAddress, setTransferAddress] = useState("");
+    const [transferChain, setTransferChain] = useState("");
     const dispatch = useDispatch();
 
     const handleClose = () => setOpenModal(false);
