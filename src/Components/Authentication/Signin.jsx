@@ -72,7 +72,7 @@ function SigninComponent() {
 
                 <Form.Group className="mb-3" controlId="formBasicEmail">
                     <Form.Label>Email address</Form.Label>
-                    <Form.Control type="email" placeholder="Enter email" onChange={(e) => setUser({ ...user, email: e.target.value })} />
+                    <Form.Control data-testid="email-input" required type="email" placeholder="Enter email" onChange={(e) => setUser({ ...user, email: e.target.value })} />
                     <Form.Text className="text-muted">
                         We'll never share your email with anyone else.
                     </Form.Text>
@@ -80,7 +80,7 @@ function SigninComponent() {
 
                 <Form.Group className="mb-3" controlId="formBasicPassword">
                     <Form.Label>Password</Form.Label>
-                    <Form.Control type="password" placeholder="Password" onChange={(e) => setUser({ ...user, password: e.target.value })} />
+                    <Form.Control data-testid="pass-input" required type="password" placeholder="Password" onChange={(e) => setUser({ ...user, password: e.target.value })} />
                 </Form.Group>
 
                 <Button variant="primary" type="submit" onClick={signin}>

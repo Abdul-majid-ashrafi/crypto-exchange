@@ -2,10 +2,8 @@ import React, { useState } from "react";
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import { ErrorAlert, SuccessAlert } from '../UI/Assest';
-import { useNavigate } from "react-router-dom";
 
 function SignupComponent() {
-    const navigate = useNavigate();
 
     const [user, setUser] = useState({
         username: "",
@@ -44,7 +42,7 @@ function SignupComponent() {
                     setAlertType({ isFailed: false, message: "Account created successfully", isSuccess: true });
                     setTimeout(() => {
                         setAlertType({ isSuccess: false, message: null, isFailed: false });
-                        navigate("/signin");
+                        window.location.href = "/signin";
                     }, 1500);
                 }
             }
@@ -61,12 +59,12 @@ function SignupComponent() {
             <Form onSubmit={signup}>
                 <Form.Group className="mb-3" controlId="username">
                     <Form.Label>User name</Form.Label>
-                    <Form.Control type="text" placeholder="Enter Username" onChange={(e) => setUser({ ...user, username: e.target.value })} />
+                    <Form.Control data-testid="username-input" required type="text" placeholder="Enter Username" onChange={(e) => setUser({ ...user, username: e.target.value })} />
                 </Form.Group>
 
                 <Form.Group className="mb-3" controlId="formBasicEmail">
                     <Form.Label>Email address</Form.Label>
-                    <Form.Control type="email" placeholder="Enter email" onChange={(e) => setUser({ ...user, email: e.target.value })} />
+                    <Form.Control data-testid="signup-email-input" required type="email" placeholder="Enter email" onChange={(e) => setUser({ ...user, email: e.target.value })} />
                     <Form.Text className="text-muted">
                         We'll never share your email with anyone else.
                     </Form.Text>
@@ -74,15 +72,15 @@ function SignupComponent() {
 
                 <Form.Group className="mb-3" controlId="formBasicPassword">
                     <Form.Label>Password</Form.Label>
-                    <Form.Control type="password" placeholder="Password" onChange={(e) => setUser({ ...user, password: e.target.value })} />
+                    <Form.Control data-testid="signup-pass-input" required type="password" placeholder="Password" onChange={(e) => setUser({ ...user, password: e.target.value })} />
                 </Form.Group>
 
                 <Form.Group className="mb-3" controlId="address">
                     <Form.Label>Address</Form.Label>
-                    <Form.Control type="text" placeholder="address" onChange={(e) => setUser({ ...user, address: e.target.value })} />
+                    <Form.Control data-testid="address-input" required type="text" placeholder="address" onChange={(e) => setUser({ ...user, address: e.target.value })} />
                 </Form.Group>
 
-                <Button variant="primary" type="submit" onClick={signup}>
+                <Button variant="primary" type="submit" onClick={signup} data-testid="button">
                     Submit
                 </Button>
             </Form>
