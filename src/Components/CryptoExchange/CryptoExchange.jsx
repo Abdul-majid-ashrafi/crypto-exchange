@@ -12,12 +12,10 @@ function CryptoExchangeComponent() {
     const [selectedUser, setSelectedUser] = useState({});
 
     useEffect(() => {
-        if (data.users.length > 0) {
+        if (data && data.users && data.users.length > 0) {
             setUsers(data.users);
         }
     }, []);
-
-    const dispatch = useDispatch();
 
     return (
         <div className="form">
@@ -42,12 +40,6 @@ function CryptoExchangeComponent() {
                                 {user.coin}
                             </td>
                             <td>
-                                {/* <div style={{ display: 'flex', justifyContent: 'space-evenly' }} onClick={() => {
-                                    user.coin = user.coin - 2;
-                                    dispatch(coinTransferred(user));
-                                }}>
-                                    click me
-                                </div> */}
                                 <div style={{ display: 'flex', justifyContent: 'space-evenly' }} onClick={() => setSelectedUser(user)}>
                                     <CryptoExchangeTransfer users={users} selectedUser={selectedUser} />
                                 </div>
